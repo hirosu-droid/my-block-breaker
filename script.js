@@ -161,7 +161,9 @@ function draw() {
     else if (y + dy > canvas.height - ballRadius) {
         // パドルに当たった場合
         if (x > paddleX && x < paddleX + paddleWidth) {
-            dy = -dy;
+            // パドルに当たるたびにボールの速度を少しずつ速くする
+            dy = -dy * 1.05;
+            dx = dx * 1.05;
         } else {
             // パドルに当たらなかった場合（ゲームオーバー）
             lives--;
